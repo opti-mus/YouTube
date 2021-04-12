@@ -425,6 +425,13 @@ textarea {
   position: sticky;
   top: 0;
   z-index: 200; }
+  .header__loader {
+    height: 3px;
+    width: 0%;
+    background-color: red;
+    position: absolute;
+    top: 0;
+    left: 0; }
   .header__left {
     display: flex;
     flex-grow: 1; }
@@ -480,7 +487,8 @@ textarea {
     position: absolute;
     right: calc( 8rem + .5em);
     top: 50%;
-    transform: translate(50%, -50%); }
+    transform: translate(50%, -50%);
+    cursor: pointer; }
   .search__bg-icon {
     background-color: rgba(255, 255, 255, 0.2);
     width: 8rem;
@@ -595,120 +603,6 @@ textarea {
     right: 0.6rem;
     pointer-events: none; }
 
-.contents {
-  background-color: #181818;
-  width: 100%; }
-  .contents__container {
-    max-width: 239rem;
-    margin: 0 auto;
-    padding-left: calc( 24rem + 2rem);
-    padding-top: 2rem;
-    padding-right: 2rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between; }
-    @media screen and (max-width: 1341px) {
-      .contents__container {
-        padding-left: calc( 7rem + 2rem); } }
-    @media screen and (max-width: 800px) {
-      .contents__container {
-        padding-left: 0;
-        padding-right: 0; } }
-    @media screen and (max-width: 510px) {
-      .contents__container {
-        justify-content: center; } }
-  .contents__item {
-    width: calc( 100% / 4 - 2rem);
-    cursor: pointer;
-    margin-bottom: 4rem;
-    margin-right: 1rem;
-    margin-left: 1rem; }
-    .contents__item:hover .contents__late, .contents__item:hover .contents__list, .contents__item:hover .contents__more {
-      display: flex; }
-    @media screen and (max-width: 1150px) {
-      .contents__item {
-        width: calc( 100% / 3 - 2rem); } }
-    @media screen and (max-width: 890px) {
-      .contents__item {
-        width: calc( 100% / 2 - 2rem); } }
-    @media screen and (max-width: 510px) {
-      .contents__item {
-        width: 30rem; } }
-    @media screen and (min-width: 1900px) {
-      .contents__item {
-        width: calc( 100% / 5 - 2rem); } }
-    @media screen and (min-width: 2300px) {
-      .contents__item {
-        width: calc( 100% / 6 - 2rem); } }
-  .contents__img {
-    height: auto;
-    position: relative;
-    z-index: 10; }
-  .contents__late, .contents__list {
-    top: .5rem;
-    right: .5rem;
-    z-index: 11;
-    display: none; }
-  .contents__late.add-to-watch::before {
-    content: 'Добавлено в плейлист "Смотреть позже"';
-    color: #3A85E2; }
-  .contents__list {
-    top: 4rem; }
-    .contents__list::before {
-      content: 'добавить в очередь'; }
-  .contents__desc {
-    display: flex;
-    margin-top: 1.4rem; }
-  .contents__details {
-    margin-left: 1.2rem; }
-  .contents__avatar {
-    width: 3.6rem;
-    height: 3.6rem;
-    border-radius: 50%;
-    overflow: hidden;
-    flex-shrink: 0; }
-    .contents__avatar img {
-      height: 100%; }
-  .contents__details {
-    color: #AAAAAA;
-    font-size: 1.5rem;
-    font-weight: 400;
-    line-height: 1.2;
-    width: 100%; }
-  .contents__title {
-    font-size: 1.6rem;
-    font-weight: 500;
-    color: #ffffff;
-    margin-bottom: 1rem;
-    -webkit-line-clamp: 2;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    padding-right: 3rem;
-    position: relative;
-    min-height: 2.2rem; }
-  .contents__more {
-    width: 1.7rem;
-    height: 1.6rem;
-    fill: #909090;
-    position: absolute;
-    right: .5rem;
-    top: .5rem;
-    display: none; }
-    .contents__more:hover {
-      fill: #ffffff; }
-  .contents__data {
-    white-space: nowrap; }
-  .contents__channel {
-    color: inherit; }
-    .contents__channel:hover {
-      color: #ffffff; }
-  .contents__views {
-    display: block; }
-    .contents__views::after {
-      content: '•';
-      margin: 0 4px; }
-
 .popup {
   padding: .8em .7em;
   background-color: rgba(144, 144, 144, 0.93);
@@ -728,7 +622,7 @@ textarea {
 .side-menu-hidden {
   left: -24rem;
   transition: left .3s;
-  z-index: 9999;
+  z-index: 980;
   top: 5.6rem;
   height: calc( 100vh - 5.6rem); }
   .side-menu-hidden__yt {
@@ -746,6 +640,9 @@ textarea {
     height: auto;
     display: block;
     margin-left: 2rem; }
+  .side-menu-hidden.show {
+    left: 0;
+    overflow-y: auto; }
 
 .side-menu-wrapper {
   background-color: transparent;
@@ -759,9 +656,6 @@ textarea {
   .side-menu-wrapper.show {
     background-color: rgba(24, 24, 24, 0.7);
     z-index: 300; }
-    .side-menu-wrapper.show .side-menu-hidden {
-      left: 0;
-      overflow-y: auto; }
 
 .contex {
   background-color: #212121;
@@ -782,32 +676,34 @@ textarea {
   .watch__container {
     max-width: 1250px;
     margin: 0 auto;
-    padding-top: 25px; }
+    padding-top: 25px;
+    display: flex;
+    flex-wrap: wrap; }
     @media screen and (max-width: 1250px) {
       .watch__container {
         max-width: 90%; } }
   .watch__main {
     height: 1000px;
-    width: 100%;
-    display: flex; }
+    width: 69%; }
   .watch__video {
-    width: 70%; }
+    color: #909090; }
   .watch__recommend {
-    background-color: #303030;
-    width: 30%;
+    width: 27%;
     margin-left: 3rem; }
 
 .video__item {
   margin-left: 2rem;
   display: flex;
   align-items: center;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  color: #909090; }
   .video__item object {
     margin-right: 0.5rem; }
 
 .video__icon {
   width: 2.1rem;
-  height: 2.1rem; }
+  height: 2.1rem;
+  pointer-events: none; }
 
 .video__player {
   width: 100%;
@@ -815,9 +711,10 @@ textarea {
   background-color: #303030; }
 
 .video__title {
-  font-size: 1.8em;
-  width: 60%;
-  padding-top: 2rem; }
+  font-size: 1.6em;
+  width: 90%;
+  padding-top: 2rem;
+  color: #ffffff; }
 
 .video__menu {
   display: flex;
@@ -889,7 +786,7 @@ textarea {
   width: 80%;
   height: 8rem;
   overflow: hidden; }
-  .video__description.open {
+  .video__description.toggle {
     height: auto; }
 
 .virtual-keyboard {
@@ -899,7 +796,7 @@ textarea {
   position: fixed;
   bottom: 0;
   right: 0;
-  z-index: 99999;
+  z-index: 999;
   color: #181818;
   padding: 0 5px; }
   .virtual-keyboard__move {
@@ -982,7 +879,10 @@ textarea {
   position: relative; }
   .late-item__move {
     width: 2.5rem !important;
-    cursor: grab; }
+    cursor: grab;
+    background-image: url(../images/move.svg);
+    background-repeat: no-repeat;
+    background-position: center; }
   .late-item__img {
     width: 11.1rem;
     margin: 0 1rem;
@@ -1005,6 +905,181 @@ textarea {
     font-size: 2.5rem; }
   .late-item:hover {
     background-color: #303030; }
+
+.modal-message {
+  background-color: rgba(48, 48, 48, 0.9);
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity .3s; }
+  .modal-message.show {
+    opacity: 1;
+    z-index: 1020; }
+    .modal-message.show .modal-message__window {
+      margin-top: 0; }
+  .modal-message__window {
+    margin-top: -100%;
+    width: 30rem;
+    height: 10rem;
+    border-radius: .3rem;
+    background-color: #181818;
+    z-index: 1040;
+    transition: margin .3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem; }
+
+.recommend__item {
+  display: flex;
+  margin-bottom: 2rem; }
+
+.recommend__img {
+  width: 15rem !important; }
+
+.recommend__info {
+  margin-left: 1rem; }
+
+.recommend__title {
+  font-size: 1.2em;
+  -webkit-line-clamp: 2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden; }
+
+.recommend__channel {
+  color: #909090;
+  margin: .4rem 0;
+  display: inline-block; }
+
+.recommend__sub {
+  font-size: 1em;
+  color: #909090; }
+
+.recommend__views {
+  display: block; }
+
+.contents {
+  background-color: #181818;
+  width: 100%; }
+  .contents__container {
+    max-width: 239rem;
+    margin: 0 auto;
+    padding-left: calc( 24rem + 2rem);
+    padding-top: 2rem;
+    padding-right: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; }
+    @media screen and (max-width: 1341px) {
+      .contents__container {
+        padding-left: calc( 7rem + 2rem); } }
+    @media screen and (max-width: 800px) {
+      .contents__container {
+        padding-left: 0;
+        padding-right: 0; } }
+    @media screen and (max-width: 510px) {
+      .contents__container {
+        justify-content: center; } }
+  .contents__item {
+    width: calc( 100% / 4 - 2rem);
+    cursor: pointer;
+    margin-bottom: 4rem;
+    margin-right: 1rem;
+    margin-left: 1rem; }
+    .contents__item:hover .contents__late, .contents__item:hover .contents__list, .contents__item:hover .contents__more {
+      display: flex; }
+    @media screen and (max-width: 1150px) {
+      .contents__item {
+        width: calc( 100% / 3 - 2rem); } }
+    @media screen and (max-width: 890px) {
+      .contents__item {
+        width: calc( 100% / 2 - 2rem); } }
+    @media screen and (max-width: 510px) {
+      .contents__item {
+        width: 100%; } }
+    @media screen and (min-width: 1900px) {
+      .contents__item {
+        width: calc( 100% / 5 - 2rem); } }
+    @media screen and (min-width: 2300px) {
+      .contents__item {
+        width: calc( 100% / 6 - 2rem); } }
+  .contents__img {
+    height: auto;
+    position: relative;
+    z-index: 10;
+    background-color: #303030; }
+  .contents__late, .contents__list {
+    top: .5rem;
+    right: .5rem;
+    z-index: 11;
+    display: none; }
+  .contents__late.add-to-watch::before {
+    content: 'Добавлено в плейлист "Смотреть позже"';
+    color: #3A85E2; }
+  .contents__list {
+    top: 4rem; }
+    .contents__list::before {
+      content: 'добавить в очередь'; }
+  .contents__desc {
+    display: flex;
+    margin-top: 1.4rem; }
+  .contents__details {
+    margin-left: 1.2rem; }
+  .contents__avatar {
+    width: 3.6rem;
+    height: 3.6rem;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0; }
+    .contents__avatar img {
+      height: 100%; }
+  .contents__details {
+    color: #AAAAAA;
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.2;
+    width: 100%; }
+  .contents__title {
+    font-size: 1.6rem;
+    font-weight: 500;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    padding-right: 3rem;
+    position: relative;
+    min-height: 2.2rem; }
+  .contents__more {
+    width: 1.7rem;
+    height: 1.6rem;
+    fill: #909090;
+    position: absolute;
+    right: .5rem;
+    top: .5rem;
+    display: none; }
+    .contents__more:hover {
+      fill: #ffffff; }
+  .contents__data {
+    white-space: nowrap; }
+  .contents__channel {
+    color: inherit; }
+    .contents__channel:hover {
+      color: #ffffff; }
+  .contents__views {
+    display: block; }
+    .contents__views::after {
+      content: '•';
+      margin: 0 4px; }
 
 *,
 *:after,

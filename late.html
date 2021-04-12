@@ -15,7 +15,9 @@
     <title>Смотреть позже</title>
   </head>
   <body>
-    <div class="side-menu-wrapper">
+    <div class="modal-message">
+  <div class="modal-message__window"></div>
+</div> <div class="side-menu-wrapper">
   <aside class="side-menu side-menu-hidden" data-side="hide">
     <div class="side-menu-hidden__yt">
       <div class="side-menu-hidden__bars bars">
@@ -120,9 +122,11 @@
         >
           <g><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8"></path></g>
         </svg>
-        <a href="index.html" class="side-menu-nav__link" title="Главная"> Главная </a>
+        <a href="index.html" class="side-menu-nav__link" title="Главная">
+          Главная
+        </a>
       </li>
-      <li class="side-menu-nav__item">
+      <li class="side-menu-nav__item" data-modal="error">
         <svg
           viewBox="0 0 24 24"
           preserveAspectRatio="xMidYMid meet"
@@ -135,9 +139,9 @@
             ></path>
           </g>
         </svg>
-        <a href="" class="side-menu-nav__link" title="В тренде"> В тренде </a>
+        <a href="" class="side-menu-nav__link" title="В тренде" data-modal="error"> В тренде </a>
       </li>
-      <li class="side-menu-nav__item">
+      <li class="side-menu-nav__item" data-modal="error">
         <svg
           viewBox="0 0 24 24"
           preserveAspectRatio="xMidYMid meet"
@@ -150,12 +154,12 @@
             ></path>
           </g>
         </svg>
-        <a href="" class="side-menu-nav__link" title="Подписки"> Подписки </a>
+        <a href="" class="side-menu-nav__link" title="Подписки" data-modal="error"> Подписки </a>
       </li>
     </ul>
 
     <ul class="side-menu__library side-menu-library">
-      <li class="side-menu-library__item">
+      <li class="side-menu-library__item" data-modal="error">
         <svg
           viewBox="0 0 24 24"
           preserveAspectRatio="xMidYMid meet"
@@ -169,11 +173,11 @@
             ></path>
           </g>
         </svg>
-        <a href="" class="side-menu-library__link" title="Библиотека"
+        <a href="" class="side-menu-library__link" title="Библиотека" data-modal="error"
           >Библиотека</a
         >
       </li>
-      <li class="side-menu-library__item">
+      <li class="side-menu-library__item" data-modal="error">
         <svg
           viewBox="0 0 24 24"
           preserveAspectRatio="xMidYMid meet"
@@ -186,9 +190,9 @@
             ></path>
           </g>
         </svg>
-        <a href="" class="side-menu-library__link" title="История">История</a>
+        <a href="" class="side-menu-library__link" title="История" data-modal="error">История</a>
       </li>
-      <li class="side-menu-library__item">
+      <li class="side-menu-library__item" data-modal="error">
         <svg
           viewBox="0 0 24 24"
           preserveAspectRatio="xMidYMid meet"
@@ -202,7 +206,7 @@
             <path d="M10.2 9v6.5l5-3.2-5-3.2z"></path>
           </g>
         </svg>
-        <a href="" class="side-menu-library__link" title="Ваши видео"
+        <a href="" class="side-menu-library__link" title="Ваши видео" data-modal="error"
           >Ваши видео</a
         >
       </li>
@@ -226,7 +230,7 @@
           >Смотреть позже</a
         >
       </li>
-      <li class="side-menu-library__item">
+      <li class="side-menu-library__item" data-modal="error">
         <svg
           viewBox="0 0 24 24"
           preserveAspectRatio="xMidYMid meet"
@@ -239,11 +243,11 @@
             ></path>
           </g>
         </svg>
-        <a href="" class="side-menu-library__link" title="Понравившиеся"
+        <a href="" class="side-menu-library__link" title="Понравившиеся" data-modal="error"
           >Понравившиеся</a
         >
       </li>
-      <li class="side-menu-library__item">
+      <li class="side-menu-library__item" data-modal="error">
         <svg
           viewBox="0 0 24 24"
           preserveAspectRatio="xMidYMid meet"
@@ -256,12 +260,13 @@
             ></path>
           </g>
         </svg>
-        <a href="" class="side-menu-library__link" title="Плейлист">Плейлист</a>
+        <a href="" class="side-menu-library__link" title="Плейлист" data-modal="error">Плейлист</a>
       </li>
     </ul>
   </aside>
 </div>
  <header class="header" id="header">
+    <div class="header__loader"></div>
     <div class="header__left">
         <div class="header__bars bars">
             <svg viewBox="0 0 24 24" preserveAspectRatio="xMidYMid meet" focusable="false" style="pointer-events: none; display: block; width: 100%; height: 100%;"><g class="style-scope yt-icon"><path fill='#FFFFFF' d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" class="style-scope yt-icon"></path></g></svg>
@@ -272,9 +277,9 @@
     </div> 
     <div class="search header__search">
         <input type="search" class="search__input " placeholder="Введите запрос">
-            <a href="">
+           
                 <img class="search__keyboard" data-keyboard = 'on' src="assets/images/tia.png" alt="">
-            </a>
+            
         </input>
          <a href='' class="search__bg-icon" data-pop="1">
             <span class="search__icon">
@@ -320,9 +325,11 @@
       >
         <g><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8"></path></g>
       </svg>
-      <a href="index.html" class="side-menu-nav__link" title="Главная"> Главная </a>
+      <a href="index.html" class="side-menu-nav__link" title="Главная">
+        Главная
+      </a>
     </li>
-    <li class="side-menu-nav__item">
+    <li class="side-menu-nav__item" data-modal="error">
       <svg
         viewBox="0 0 24 24"
         preserveAspectRatio="xMidYMid meet"
@@ -335,9 +342,16 @@
           ></path>
         </g>
       </svg>
-      <a href="" class="side-menu-nav__link" title="В тренде"> В тренде </a>
+      <a
+        href=""
+        class="side-menu-nav__link"
+        title="В тренде"
+        data-modal="error"
+      >
+        В тренде
+      </a>
     </li>
-    <li class="side-menu-nav__item">
+    <li class="side-menu-nav__item" data-modal="error">
       <svg
         viewBox="0 0 24 24"
         preserveAspectRatio="xMidYMid meet"
@@ -350,10 +364,10 @@
           ></path>
         </g>
       </svg>
-      <a href="" class="side-menu-nav__link" title="Подписки"> Подписки </a>
+      <a href="" class="side-menu-nav__link" title="Подписки" data-modal="error"> Подписки </a>
     </li>
 
-    <li class="side-menu-nav__item">
+    <li class="side-menu-nav__item" data-modal="error">
       <svg
         viewBox="0 0 24 24"
         preserveAspectRatio="xMidYMid meet"
@@ -367,11 +381,11 @@
           ></path>
         </g>
       </svg>
-      <a href="" class="side-menu-nav__link" title="Библиотека">Библиотека</a>
+      <a href="" class="side-menu-nav__link" title="Библиотека" data-modal="error">Библиотека</a>
     </li>
   </ul>
   <ul class="side-menu__library side-menu-library">
-    <li class="side-menu-library__item">
+    <li class="side-menu-library__item" data-modal="error">
       <svg
         viewBox="0 0 24 24"
         preserveAspectRatio="xMidYMid meet"
@@ -384,9 +398,9 @@
           ></path>
         </g>
       </svg>
-      <a href="" class="side-menu-library__link" title="История">История</a>
+      <a href="" class="side-menu-library__link" title="История" data-modal="error">История</a>
     </li>
-    <li class="side-menu-library__item">
+    <li class="side-menu-library__item" data-modal="error">
       <svg
         viewBox="0 0 24 24"
         preserveAspectRatio="xMidYMid meet"
@@ -400,7 +414,7 @@
           <path d="M10.2 9v6.5l5-3.2-5-3.2z"></path>
         </g>
       </svg>
-      <a href="" class="side-menu-library__link" title="Ваши видео"
+      <a href="" class="side-menu-library__link" title="Ваши видео" data-modal="error"
         >Ваши видео</a
       >
     </li>
@@ -421,7 +435,7 @@
         >Смотреть позже</a
       >
     </li>
-    <li class="side-menu-library__item">
+    <li class="side-menu-library__item" data-modal="error">
       <svg
         viewBox="0 0 24 24"
         preserveAspectRatio="xMidYMid meet"
@@ -434,11 +448,11 @@
           ></path>
         </g>
       </svg>
-      <a href="" class="side-menu-library__link" title="Понравившиеся"
+      <a href="" class="side-menu-library__link" title="Понравившиеся" data-modal="error"
         >Понравившиеся</a
       >
     </li>
-    <li class="side-menu-library__item">
+    <li class="side-menu-library__item" data-modal="error">
       <svg
         viewBox="0 0 24 24"
         preserveAspectRatio="xMidYMid meet"
@@ -451,7 +465,7 @@
           ></path>
         </g>
       </svg>
-      <a href="" class="side-menu-library__link" title="Плейлист">Плейлист</a>
+      <a href="" class="side-menu-library__link" title="Плейлист" data-modal="error">Плейлист</a>
     </li>
   </ul>
 </aside>
