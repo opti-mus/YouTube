@@ -461,6 +461,9 @@ textarea {
     margin-right: 2rem;
     cursor: pointer;
     width: 2.3rem; }
+    @media screen and (max-width: 510px) {
+      .header-nav__item {
+        margin-right: .7rem; } }
   .header-nav__link {
     fill: #ffffff; }
   .header-nav__cabinet {
@@ -683,13 +686,20 @@ textarea {
       .watch__container {
         max-width: 90%; } }
   .watch__main {
-    height: 1000px;
     width: 69%; }
+    @media screen and (max-width: 1024px) {
+      .watch__main {
+        width: 100%; } }
   .watch__video {
     color: #909090; }
   .watch__recommend {
     width: 27%;
     margin-left: 3rem; }
+    @media screen and (max-width: 1024px) {
+      .watch__recommend {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 3rem; } }
 
 .video__item {
   margin-left: 2rem;
@@ -699,6 +709,9 @@ textarea {
   color: #909090; }
   .video__item object {
     margin-right: 0.5rem; }
+  @media screen and (max-width: 510px) {
+    .video__item.video__share, .video__item.video__save {
+      display: none; } }
 
 .video__icon {
   width: 2.1rem;
@@ -715,6 +728,9 @@ textarea {
   width: 90%;
   padding-top: 2rem;
   color: #ffffff; }
+  @media screen and (max-width: 1024px) {
+    .video__title {
+      font-size: 1.1em; } }
 
 .video__menu {
   display: flex;
@@ -729,6 +745,14 @@ textarea {
   font-size: 1.4rem;
   font-weight: 500;
   border-bottom: 1px solid #303030; }
+  @media screen and (max-width: 1024px) {
+    .video__opt {
+      font-size: 1rem; } }
+  @media screen and (max-width: 510px) {
+    .video__opt {
+      margin-top: 1rem;
+      height: 3.5rem;
+      font-size: .8rem; } }
 
 .video__likes {
   display: flex;
@@ -762,6 +786,9 @@ textarea {
   display: block;
   font-weight: 400;
   font-size: 1.3rem; }
+  @media screen and (max-width: 510px) {
+    .video__subscribers {
+      font-size: 0.7em; } }
 
 .video__subscribe {
   background-color: #CC0000;
@@ -769,6 +796,10 @@ textarea {
   padding: 1.2rem 2rem;
   font-weight: 500;
   border-radius: 3px; }
+  @media screen and (max-width: 510px) {
+    .video__subscribe {
+      padding: 0.8rem 1.4rem;
+      font-size: 0.7em; } }
 
 .video__open {
   margin-left: 7rem;
@@ -788,6 +819,9 @@ textarea {
   overflow: hidden; }
   .video__description.toggle {
     height: auto; }
+  @media screen and (max-width: 510px) {
+    .video__description {
+      width: 100%; } }
 
 .virtual-keyboard {
   background-color: #fff;
@@ -848,6 +882,9 @@ textarea {
   @media screen and (max-width: 800px) {
     .late {
       padding-left: 0; } }
+  @media screen and (max-width: 890px) {
+    .late {
+      flex-wrap: wrap; } }
   .late__video {
     flex-grow: 1;
     padding: 0 2rem;
@@ -856,6 +893,9 @@ textarea {
     padding-top: 2rem; }
   .late__list {
     padding-top: 2rem; }
+    @media screen and (max-width: 890px) {
+      .late__list {
+        width: 100%; } }
   .late__img {
     width: 100%; }
   .late__title {
@@ -876,7 +916,8 @@ textarea {
   border-bottom: 0.1rem solid #303030;
   padding: 1.5rem;
   max-width: 84rem;
-  position: relative; }
+  position: relative;
+  width: 100%; }
   .late-item__move {
     width: 2.5rem !important;
     cursor: grab;
@@ -888,13 +929,20 @@ textarea {
     margin: 0 1rem;
     flex-shrink: 0; }
   .late-item__title {
-    font-size: 1.6rem; }
+    font-size: 1.6rem;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden; }
     @media screen and (max-width: 800px) {
       .late-item__title {
-        font-size: 1.1rem; } }
+        font-size: 1.4rem; } }
   .late-item__desc {
     position: relative;
     width: 65%; }
+    @media screen and (max-width: 800px) {
+      .late-item__desc {
+        width: 35%; } }
   .late-item__channel {
     position: absolute;
     bottom: 0;
@@ -939,7 +987,7 @@ textarea {
 
 .recommend__item {
   display: flex;
-  margin-bottom: 2rem; }
+  margin-bottom: .3rem; }
 
 .recommend__img {
   width: 15rem !important; }
@@ -960,7 +1008,7 @@ textarea {
   display: inline-block; }
 
 .recommend__sub {
-  font-size: 1em;
+  font-size: .9em;
   color: #909090; }
 
 .recommend__views {
