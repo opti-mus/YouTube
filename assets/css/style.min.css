@@ -520,7 +520,8 @@ textarea {
   .side-menu::-webkit-scrollbar-button {
     display: none; }
   .side-menu::-webkit-scrollbar-thumb {
-    background-color: #303030; }
+    background-color: #303030;
+    border-radius: 0; }
   .side-menu:hover {
     overflow-y: scroll; }
   .side-menu.close-menu {
@@ -730,7 +731,7 @@ textarea {
   color: #ffffff; }
   @media screen and (max-width: 1024px) {
     .video__title {
-      font-size: 1.1em; } }
+      font-size: 1.2em; } }
 
 .video__menu {
   display: flex;
@@ -752,7 +753,7 @@ textarea {
     .video__opt {
       margin-top: 1rem;
       height: 3.5rem;
-      font-size: .8rem; } }
+      font-size: 1rem; } }
 
 .video__likes {
   display: flex;
@@ -799,7 +800,7 @@ textarea {
   @media screen and (max-width: 510px) {
     .video__subscribe {
       padding: 0.8rem 1.4rem;
-      font-size: 0.7em; } }
+      font-size: 0.8em; } }
 
 .video__open {
   margin-left: 7rem;
@@ -821,7 +822,8 @@ textarea {
     height: auto; }
   @media screen and (max-width: 510px) {
     .video__description {
-      width: 100%; } }
+      width: 100%;
+      font-size: 1.3rem; } }
 
 .virtual-keyboard {
   background-color: #fff;
@@ -1039,7 +1041,7 @@ textarea {
   .contents__item {
     width: calc( 100% / 4 - 2rem);
     cursor: pointer;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
     margin-right: 1rem;
     margin-left: 1rem; }
     .contents__item:hover .contents__late, .contents__item:hover .contents__list, .contents__item:hover .contents__more {
@@ -1125,14 +1127,21 @@ textarea {
       color: #ffffff; }
   .contents__views {
     display: block; }
-    .contents__views::after {
-      content: '•';
-      margin: 0 4px; }
 
 *,
 *:after,
 *:before {
   box-sizing: border-box; }
+
+*::-webkit-scrollbar {
+  width: .8rem; }
+
+*::-webkit-scrollbar-button {
+  display: none; }
+
+*::-webkit-scrollbar-thumb {
+  background-color: #909090;
+  border-radius: 15px; }
 
 html {
   font-size: 10px; }

@@ -527,6 +527,12 @@ textarea {
     width: 2.3rem;
 }
 
+@media screen and (max-width: 510px) {
+    .header-nav__item {
+        margin-right: .7rem;
+    }
+}
+
 .header-nav__link {
     fill: #ffffff;
 }
@@ -616,6 +622,7 @@ textarea {
 
 .side-menu::-webkit-scrollbar-thumb {
     background-color: #303030;
+    border-radius: 0;
 }
 
 .side-menu:hover {
@@ -858,8 +865,13 @@ textarea {
 }
 
 .watch__main {
-    height: 1000px;
     width: 69%;
+}
+
+@media screen and (max-width: 1024px) {
+    .watch__main {
+        width: 100%;
+    }
 }
 
 .watch__video {
@@ -869,6 +881,14 @@ textarea {
 .watch__recommend {
     width: 27%;
     margin-left: 3rem;
+}
+
+@media screen and (max-width: 1024px) {
+    .watch__recommend {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 3rem;
+    }
 }
 
 .video__item {
@@ -883,6 +903,12 @@ textarea {
 
 .video__item object {
     margin-right: 0.5rem;
+}
+
+@media screen and (max-width: 510px) {
+    .video__item.video__share, .video__item.video__save {
+        display: none;
+    }
 }
 
 .video__icon {
@@ -904,6 +930,12 @@ textarea {
     color: #ffffff;
 }
 
+@media screen and (max-width: 1024px) {
+    .video__title {
+        font-size: 1.1em;
+    }
+}
+
 .video__menu {
     display: -ms-flexbox;
     display: flex;
@@ -923,6 +955,20 @@ textarea {
     font-size: 1.4rem;
     font-weight: 500;
     border-bottom: 1px solid #303030;
+}
+
+@media screen and (max-width: 1024px) {
+    .video__opt {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 510px) {
+    .video__opt {
+        margin-top: 1rem;
+        height: 3.5rem;
+        font-size: .8rem;
+    }
 }
 
 .video__likes {
@@ -974,12 +1020,25 @@ textarea {
     font-size: 1.3rem;
 }
 
+@media screen and (max-width: 510px) {
+    .video__subscribers {
+        font-size: 0.7em;
+    }
+}
+
 .video__subscribe {
     background-color: #CC0000;
     text-transform: uppercase;
     padding: 1.2rem 2rem;
     font-weight: 500;
     border-radius: 3px;
+}
+
+@media screen and (max-width: 510px) {
+    .video__subscribe {
+        padding: 0.8rem 1.4rem;
+        font-size: 0.7em;
+    }
 }
 
 .video__open {
@@ -1003,6 +1062,12 @@ textarea {
 
 .video__description.toggle {
     height: auto;
+}
+
+@media screen and (max-width: 510px) {
+    .video__description {
+        width: 100%;
+    }
 }
 
 .virtual-keyboard {
@@ -1097,6 +1162,13 @@ textarea {
     }
 }
 
+@media screen and (max-width: 890px) {
+    .late {
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+}
+
 .late__video {
     -ms-flex-positive: 1;
     flex-grow: 1;
@@ -1109,6 +1181,12 @@ textarea {
 
 .late__list {
     padding-top: 2rem;
+}
+
+@media screen and (max-width: 890px) {
+    .late__list {
+        width: 100%;
+    }
 }
 
 .late__img {
@@ -1144,6 +1222,7 @@ textarea {
     padding: 1.5rem;
     max-width: 84rem;
     position: relative;
+    width: 100%;
 }
 
 .late-item__move {
@@ -1164,17 +1243,27 @@ textarea {
 
 .late-item__title {
     font-size: 1.6rem;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
 @media screen and (max-width: 800px) {
     .late-item__title {
-        font-size: 1.1rem;
+        font-size: 1.4rem;
     }
 }
 
 .late-item__desc {
     position: relative;
     width: 65%;
+}
+
+@media screen and (max-width: 800px) {
+    .late-item__desc {
+        width: 35%;
+    }
 }
 
 .late-item__channel {
@@ -1240,7 +1329,7 @@ textarea {
 .recommend__item {
     display: -ms-flexbox;
     display: flex;
-    margin-bottom: 2rem;
+    margin-bottom: .3rem;
 }
 
 .recommend__img {
@@ -1266,7 +1355,7 @@ textarea {
 }
 
 .recommend__sub {
-    font-size: 1em;
+    font-size: .9em;
     color: #909090;
 }
 
@@ -1467,6 +1556,19 @@ textarea {
 *:after,
 *:before {
     box-sizing: border-box;
+}
+
+*::-webkit-scrollbar {
+    width: .8rem;
+}
+
+*::-webkit-scrollbar-button {
+    display: none;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #909090;
+    border-radius: 15px;
 }
 
 html {
