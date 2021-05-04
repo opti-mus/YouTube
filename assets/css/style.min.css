@@ -880,7 +880,8 @@ textarea {
   height: calc(100vh - 5.6rem);
   padding-left: calc( 24rem);
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  align-content: flex-start; }
   @media screen and (max-width: 800px) {
     .late {
       padding-left: 0; } }
@@ -894,7 +895,7 @@ textarea {
     background-color: #181818;
     padding-top: 2rem; }
   .late__list {
-    padding-top: 2rem; }
+    padding-top: 4rem; }
     @media screen and (max-width: 890px) {
       .late__list {
         width: 100%; } }
