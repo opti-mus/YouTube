@@ -547,7 +547,6 @@ textarea {
     flex-grow: 2;
     display: -ms-flexbox;
     display: flex;
-    overflow: hidden;
     border-radius: 2px;
     position: relative;
     margin: 0px 6rem;
@@ -584,6 +583,26 @@ textarea {
     -ms-flex-pack: center;
     justify-content: center;
     opacity: .4;
+}
+
+.search__output {
+    position: absolute;
+    top: calc( 100% + 1.2rem);
+    width: calc( 100% - 8rem);
+    background-color: #ffffff;
+    color: #181818;
+    display: none;
+}
+
+.search__item {
+    color: #181818;
+    display: block;
+    padding: .7rem 1rem;
+    font-weight: 600;
+}
+
+.search__item:hover {
+    background-color: rgba(48, 48, 48, 0.2);
 }
 
 .search__icon {
@@ -827,11 +846,9 @@ textarea {
 
 .contex {
     background-color: #212121;
-    width: 35rem;
-    height: 29rem;
     position: fixed;
     z-index: 9999;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     border-radius: .5rem;
     overflow-y: auto;
 }
@@ -1279,6 +1296,7 @@ textarea {
     position: absolute;
     right: 3rem;
     font-size: 2.5rem;
+    padding: 1rem;
 }
 
 .late-item:hover {
